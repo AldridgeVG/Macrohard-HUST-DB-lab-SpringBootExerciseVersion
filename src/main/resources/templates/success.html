@@ -4,12 +4,33 @@
     <meta charset="UTF-8">
     <title>SUCCESS!</title>
 </head>
-<body>
+
 <h1>SUCCESS!</h1>
 <br>
-<h2>hello Gallands</h2>
+<h2>GALLAND</h2>
 <br>
+<hr/>
 <!-- th:text set content of div to ...-->
-<div th:text="${Key1}"> is the value of Key1 of parameter map</div>
+<div th:text="${MASTER}"></div>
+<hr/>
+<br>
+use th: text and there's no transition:
+<div th:text="${Key1}"></div>
+<br>
+use th:utext and h1 label will be translate:
+<div th:utext="${Key1}"></div>
+<br>
+<hr/>
+
+<!--th: each will generate a h labelin every round-->
+<h4 th:text="${guest}" th:each="guest:${GUESTS}"></h4>
+<hr/>
+
+<!--this method will run iteration in span of this h4-->
+<h4> GUESTS:
+    <span th:each="guest:${GUESTS}"> [[${guest}]] </span>
+</h4>
+<hr/>
+
 </body>
 </html>

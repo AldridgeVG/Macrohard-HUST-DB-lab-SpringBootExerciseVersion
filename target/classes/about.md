@@ -50,4 +50,66 @@
  ###thymeleaf grammar
     1. use html head <html lang="en" xmlns:th="http://www.thymeleaf.org"> import thymeleaf namespace
     2. use thymeleaf grammar
+     grammar:
+     
+        1. th: (AnyPropertyOfHTML)
+            th: text/ th: id/ th: class/ th: each/ ...
+        
+        2. Exp grammar
+            ${} : get var value (OGNL EXP)
+            
+                ${ObjA.A.a} cascade property
+                ${ObjA['A']['a']} cascade property
+                ${map['Geogre Washington'].age} map.get
+                ${array[4].elem} array
+                ${ObjA.methodA("param")} call method
+                
+                ${#locale.country} "#OBJ" CALL INTERNAL OBJ
+                {
+                    internal tool class:
+                        #execInfo
+                        #number
+                        #calenders
+                        #dates
+                        #arrays
+                        #lists
+                        #bools
+                        #strings
+                        #ids
+                        #maps
+                        #sets
+                        #messages
+                        #conversations
+                }
+                
+            *{} : var selection exp
+                
+                same function of ${}
+                
+                additional: (along with th: object, '*' represnts session.user)
+                {
+                    <div th: object = "${session.user}">
+                        <p>Name: <span th: text = "*{firstNmae}"> aaa </span></p>
+                    </div>
+                }
+                
+            #{} : get international content
+            
+            @{} : def url herf link
+                
+                (use insertion ${} to simplify grammar(instead of use '?' and strcats))
+                <a herf = "2.html" th: herf = "@{http://localhost:8899/detail(orderID = ${o.id})}"> view </a>
+            
+            ~{} : fragment quote exp
+            
+            * / + - < <= > >= == != and or not...
+            
+            ? / ?:
+            
+            
+ ##SpringMVC in SpringBoot
+    
+    springMVC has been auto configured in spring boot
+        1. ViewResolver
+                               
         

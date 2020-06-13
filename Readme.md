@@ -15,4 +15,6 @@ SpringBoot web webjars -- check
 
 SpringBoot web static resource config -- check
 
-SpringBoot web thymeleaf
+SpringBoot web thymeleaf -- check
+
+SpringBoot web SpringMVC takeover -- 

@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Arrays;
 import java.util.Map;
 
 /*
@@ -36,7 +37,11 @@ public class controller {
         * ==> find file in "resources/templates/success.html"
         * ==> html get map's value by thymeleaf grammar
         * */
-        map.put("Key1","Value1");
+
+        map.put("Key1","<h2>Value1</h2>");
+        map.put("MASTER","Aldridge von Galland");
+        map.put("GUESTS", Arrays.asList("Tina","Cinder","Vincent","Anthea"));
+
         return "success";
     }
 }
