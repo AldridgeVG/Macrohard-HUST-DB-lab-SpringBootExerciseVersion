@@ -1,4 +1,6 @@
 # usage
+##resources/
+    save all static resources
 ##static/
     save all static resources
     e.g. js,css,images
@@ -8,6 +10,13 @@
 ##application.properties
     global configuration file of a SpringBoot apps
     application.properties / application.yml
+    
+    properties/tmal can be placed in:
+        1.file:./config/
+        2.file:./
+        3.classpath:/config/
+        4.classpath:/
+    (order by priority desc)
 ##YAML
 ###YAML grammar
     k: v signifys a key-value pair
@@ -31,3 +40,14 @@
             - pig
         
         pets: [cat,dog,pig]
+ 
+ ##thymeleaf
+    according to thymeleaf:
+        public static final String DEFAULT_PREFIX = "classpath:/templates/";
+        public static final String DEFAULT_SUFFIX = ".html";
+    find files in resources/templates, append .html
+    
+ ###thymeleaf grammar
+    1. use html head <html lang="en" xmlns:th="http://www.thymeleaf.org"> import thymeleaf namespace
+    2. use thymeleaf grammar
+        
