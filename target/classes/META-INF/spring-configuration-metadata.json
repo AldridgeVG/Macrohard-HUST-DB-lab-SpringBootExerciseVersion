@@ -1,0 +1,11 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.Macrohard.bean.employer",
+      "name": "employer",
+      "type": "com.Macrohard.bean.employer"
+    }
+  ],
+  "properties": []
+}

@@ -1,0 +1,13 @@
+server:
+  port:8888
+
+employer:
+  name: cjt
+  age: 21
+  map: {k1: v1,k2: v2}
+  list: [a,b,c,d]
+  set:
+    - c
+    - d
+    - f
+    - c
