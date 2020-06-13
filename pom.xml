@@ -8,6 +8,8 @@
     <artifactId>Macrohard_SBV</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <!--THIS PARENT'S PARENT IS “spring-boot-dependencies”-->
+    <!--IT'S THE ACTUAL VERSION ARBITRATION OF SPRING BOOT-->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -15,6 +17,11 @@
     </parent>
 
     <dependencies>
+
+        <!--"spring-boot-starter" IS THE SCENE LAUNCHER-->
+        <!--"starter-web" INCLUDING tomcat, hibernate, jackson, webmvc, ETC-->
+        <!--"starters" SPECIFY CERTAIN DEPENDENCIES IN CERTAIN SCENE(e.g. web)-->
+        <!-- FYI: spring-boot PROJECT ON Github, CHECK "s-b-starters/s-b-starter-mall" -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
