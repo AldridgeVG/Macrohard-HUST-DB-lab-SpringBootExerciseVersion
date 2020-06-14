@@ -42,4 +42,4 @@ This is a spring boot version of Macrohard (HUAT-DB-lab)
     use model to send data in dao into pages
     <th:each > traverse
     
-    
+    add/edit employee info finished (post/put method, send id by path/input)
