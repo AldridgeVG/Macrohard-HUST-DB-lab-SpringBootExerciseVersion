@@ -27,6 +27,19 @@ public class controller {
         return "Hello SpringBoot!";
     }
 
+    /*
+    //NEW IMPLEMENT to view controller
+
+    @RequestMapping({"/","/login","/home","/login.html"})
+    public String login(){
+
+        //look for login.html in templates/
+        return "login";
+    }
+    */
+
+
+    //test
     @RequestMapping("/success")
     public String success(Map<String,Object> map){
         /*

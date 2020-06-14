@@ -17,4 +17,6 @@ SpringBoot web static resource config -- check
 
 SpringBoot web thymeleaf -- check
 
-SpringBoot web SpringMVC takeover -- 
+SpringBoot web SpringMVC takeover --  later
+
+SpringBoot web Internaltionalization --
