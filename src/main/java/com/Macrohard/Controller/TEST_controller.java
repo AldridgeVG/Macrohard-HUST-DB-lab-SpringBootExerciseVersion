@@ -17,7 +17,7 @@ import java.util.Map;
 
 //USE RestController to replace controller+responsebody
 @Controller
-public class controller {
+public class TEST_controller {
 
     //SIGNIFY this is a response with body
     //SIGNIFY this response request"hello"
@@ -40,7 +40,7 @@ public class controller {
 
 
     //test
-    @RequestMapping("/success")
+    @RequestMapping("/TEST_success")
     public String success(Map<String,Object> map){
         /*
         * according to thymeleaf:
@@ -55,6 +55,6 @@ public class controller {
         map.put("MASTER","Aldridge von Galland");
         map.put("GUESTS", Arrays.asList("Tina","Cinder","Vincent","Anthea"));
 
-        return "success";
+        return "TEST_success";
     }
 }

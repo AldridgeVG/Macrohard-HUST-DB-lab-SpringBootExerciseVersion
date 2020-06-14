@@ -77,31 +77,45 @@
 
                     <!--foreach traverse data in emps (retrieved from dao class)-->
                     <tbody>
-                        <tr th:each="emp:${emps}">
-                            <td th:text="${emp.id}"></td>
-                            <td th:text="${emp.lastName}"></td>
-                            <td th:text="${emp.email}"></td>
+                    <tr th:each="emp:${emps}">
+                        <td th:text="${emp.id}"></td>
+                        <td th:text="${emp.lastName}"></td>
+                        <td th:text="${emp.email}"></td>
 
-                            <!--?: exp can also be placed inside{}-->
-                            <td th:text="${emp.gender}==0?'Female':'Male'"></td>
+                        <!--?: exp can also be placed inside{}-->
+                        <td th:text="${emp.gender}==0?'Female':'Male'"></td>
 
-                            <!--cascadeget property-->
-                            <td th:text="${emp.department.getDepartmentName()}"></td>
+                        <!--cascadeget property-->
+                        <td th:text="${emp.department.getDepartmentName()}"></td>
 
-                            <!--date formatting-->
-                            <!--<td>[[${#dates.format(emp.birth,'dd/MMM/yyyy HH:mm')}]]</td>-->
-                            <td th:text="${#dates.format(emp.birth,'yyyy-MM-dd')}"></td>
+                        <!--date formatting-->
+                        <!--<td>[[${#dates.format(emp.birth,'dd/MMM/yyyy HH:mm')}]]</td>-->
+                        <td th:text="${#dates.format(emp.birth,'yyyy-MM-dd')}"></td>
 
-                            <!--op button-->
-                            <td>
-                                <a class="btn btn-sm btn-primary" th:href="@{'/emp/'+${emp.id}}">Optimize</a>
-                                <button class="btn btn-sm btn-danger">Delete</button>
-                            </td>
-                        </tr>
+                        <!--op button-->
+                        <td>
+                            <!--edit emp info button(hyper link<a>)-->
+                            <a class="btn btn-sm btn-primary" th:href="@{'/emp/'+${emp.id}}">Optimize</a>
+                            <!--delete emp info button(submit button)-->
+                            <!--js implement-->
+                            <button th:attr="del_uri=@{'/emp/'+${emp.id}}" type="submit" class="btn btn-sm btn-danger deleteBtn">Delete</button>
+                            <!--
+                            <form th:action="@{'/emp/'+${emp.id}}" method="post">
+                                <input type="hidden" name="_method" value="delete"/>
+                                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                            </form>
+                            -->
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
         </main>
+
+        <form id="deleteForm" method="post">
+            <input type="hidden" name="_method" value="delete"/>
+        </form>
+
     </div>
 </div>
 
@@ -116,6 +130,14 @@
 <script type="text/javascript" src="asserts/js/feather.min.js"></script>
 <script>
     feather.replace()
+</script>
+
+<script>
+    $(".deleteBtn").click(function () {
+        //delete certain emp
+        $("#deleteForm").attr("action",$(this).attr("del_uri")).submit();
+        return false;
+    })
 </script>
 
 <!-- Graphs -->

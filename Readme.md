@@ -43,3 +43,7 @@ This is a spring boot version of Macrohard (HUAT-DB-lab)
     <th:each > traverse
     
     add/edit employee info finished (post/put method, send id by path/input)
+    
+    delete emp finished (js code? enable hidden method filter to enable delete/put(app.properties))
+    
+    
