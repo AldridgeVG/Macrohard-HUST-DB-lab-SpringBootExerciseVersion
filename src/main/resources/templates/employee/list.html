@@ -97,10 +97,11 @@
                             <!--edit emp info button(hyper link<a>)-->
                             <a class="btn btn-sm btn-primary" th:href="@{'/emp/'+${emp.id}}">Optimize</a>
                             <!--delete emp info button(submit button)-->
-                            <!--js implement-->
+                            <!--th:attr can set user defined property value-->
+                            <!--js implement below-->
                             <button th:attr="del_uri=@{'/emp/'+${emp.id}}" type="submit" class="btn btn-sm btn-danger deleteBtn">Delete</button>
                             <!--
-                            <form th:action="@{'/emp/'+${emp.id}}" method="post">
+                            <form th:action="@{'/emp/'+${emp.id}}" method="post" display="inline">
                                 <input type="hidden" name="_method" value="delete"/>
                                 <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                             </form>
