@@ -1,7 +1,9 @@
 package com.Macrohard.config;
 
+import com.Macrohard.component.loginHandlerInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -24,6 +26,7 @@ public class mMvcConfig implements WebMvcConfigurer {
         registry.addViewController("/").setViewName("login");
         registry.addViewController("/home").setViewName("login");
 
+        registry.addViewController("/main").setViewName("dashboard");
 
     }
 
@@ -34,11 +37,23 @@ public class mMvcConfig implements WebMvcConfigurer {
             @Override
             public void addViewControllers(ViewControllerRegistry registry) {
                 //super.addViewControllers(registry);
+
                 //this vc provides direct access of html file
                 registry.addViewController("/login.html").setViewName("login");
                 registry.addViewController("/list.html").setViewName("list");
                 registry.addViewController("/dashboard.html").setViewName("dashboard");
-                registry.addViewController("/404").setViewName("404");
+                registry.addViewController("/404.html").setViewName("404");
+            }
+
+            @Override
+            public void addInterceptors(InterceptorRegistry registry) {
+                //super.addInterceptors(registry);
+
+                //OLD VERSION SpringBoot provide static resource(css,js) mapping, won't intercept
+                //ADD "/asserts/**" and "/webjars/**" to exclude path to get static resources
+                //INTERCEPT any request from any path EXCLUDING request to login page
+                registry.addInterceptor(new loginHandlerInterceptor()).addPathPatterns("/**")
+                        .excludePathPatterns("/asserts/**","/webjars/**","/","/home","/login.html","/user/login");
             }
         };
         return adapter;

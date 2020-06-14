@@ -111,5 +111,13 @@
     
     springMVC has been auto configured in spring boot
         1. ViewResolver
-                               
+ 
+ ##Internationalization
+    
+    later
+    
+ ##login
+    
+   
+                       
         

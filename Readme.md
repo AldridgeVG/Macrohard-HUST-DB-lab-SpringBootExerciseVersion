@@ -31,4 +31,6 @@ This is a spring boot version of Macrohard (HUAT-DB-lab)
     
     SpringBoot web SpringMVC takeover --  later
     
-    SpringBoot web Internaltionalization --
+    SpringBoot web Internaltionalization -- later (property config fail?)
+    
+    LoginFunction --  

@@ -16,16 +16,20 @@
 	</head>
 
 	<body class="text-center">
-		<form class="form-signin" action="dashboard.html">
+		<form class="form-signin" action="dashboard.html" th:action="@{/user/login}" method="post">
 
 			<!--use th:xxx => thymeleaf template engine-->
-			<img class="mb-4" th:src="@{asserts/img/fujiwara.svg}" alt="" width="72" height="72">
+			<img class="mb-4" th:src="@{/asserts/img/fujiwara.svg}" alt="" width="72" height="72">
 
 			<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+
+			<!--show login fail info, only on if condition (msg not null)-->
+			<p style="color:red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
+
 			<label class="sr-only">Username</label>
-			<input type="text" class="form-control" placeholder="Username" required="" autofocus="">
+			<input type="text" name="username" class="form-control" placeholder="Username" required="" autofocus="">
 			<label class="sr-only">Password</label>
-			<input type="password" class="form-control" placeholder="Password" required="">
+			<input type="password" name="password" class="form-control" placeholder="Password" required="">
 			<div class="checkbox mb-3">
 				<label>
           <input type="checkbox" value="remember-me"> Remember me
