@@ -33,4 +33,13 @@ This is a spring boot version of Macrohard (HUAT-DB-lab)
     
     SpringBoot web Internaltionalization -- later (property config fail?)
     
-    LoginFunction --  
+    LoginFunction -- finished
+    
+    Access control, excludepath
+    
+    Public part of page, absorb and insert (THYMELEAF)
+    
+    use model to send data in dao into pages
+    <th:each > traverse
+    
+    

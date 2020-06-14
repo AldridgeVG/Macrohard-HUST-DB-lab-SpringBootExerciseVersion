@@ -38,7 +38,8 @@ public class EmployeeDao {
 		employee.setDepartment(departmentDao.getDepartment(employee.getDepartment().getId()));
 		employees.put(employee.getId(), employee);
 	}
-	
+
+	//Query all employees
 	public Collection<Employee> getAll(){
 		return employees.values();
 	}

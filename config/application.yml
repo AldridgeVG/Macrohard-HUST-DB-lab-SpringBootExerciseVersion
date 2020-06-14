@@ -1,3 +1,7 @@
 #TOP PRIORITY CONFIGURATION
 server:
   port: 8899
+
+#spring:
+#  mvc:
+#    date-format: yyyy-MM-dd

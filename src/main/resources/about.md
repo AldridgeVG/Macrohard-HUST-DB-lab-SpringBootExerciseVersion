@@ -118,6 +118,12 @@
     
  ##login
     
+   session / Model(map) ... how to send data to page
    
+ ##thymeleaf fragment insertion
+ 
+    public part of page, th:fragment / th:insert(include/replace)
+     th:fragment = "frag(a,b)"
+     th:replace = "::frag(a=${va},b=${vb})"
                        
         
