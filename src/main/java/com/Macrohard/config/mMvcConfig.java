@@ -53,7 +53,7 @@ public class mMvcConfig implements WebMvcConfigurer {
                 //ADD "/asserts/**" and "/webjars/**" to exclude path to get static resources
                 //INTERCEPT any request from any path EXCLUDING request to login page
                 registry.addInterceptor(new loginHandlerInterceptor()).addPathPatterns("/**")
-                        .excludePathPatterns("/asserts/**","/webjars/**","/","/home","/login.html","/user/login");
+                        .excludePathPatterns("/asserts/**","/webjars/**","/","/home","/login.html","/user/login","/TEST_query","/druid/*");
             }
         };
         return adapter;

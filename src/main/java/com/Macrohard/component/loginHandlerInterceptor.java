@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 //check login status
 public class loginHandlerInterceptor implements HandlerInterceptor {
-
+/*
     //before the exe of obj method, pre check
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
@@ -25,7 +25,7 @@ public class loginHandlerInterceptor implements HandlerInterceptor {
             return true;
         }
     }
-
+*/
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
 
