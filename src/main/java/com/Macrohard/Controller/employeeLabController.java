@@ -111,4 +111,18 @@ public class employeeLabController {
         return "redirect:/memps";
     }
 
+    //delete emp info
+    @DeleteMapping("/memp/{id}")
+    public String deleteEmp(@PathVariable("id") Integer id){
+
+        System.out.println(id);
+        int res = new EmployeeLabDao().deleteOneEmp(id);
+        if(res==0){
+            System.out.println("delete failure");
+        }
+
+        //FORWARD(转发)/REDIRECT(重定向) goto memps
+        return "redirect:/memps";
+    }
+
 }
