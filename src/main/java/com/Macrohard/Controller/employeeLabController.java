@@ -3,10 +3,7 @@ package com.Macrohard.Controller;
 import com.Macrohard.dao.DepartmentDao;
 import com.Macrohard.dao.EmployeeDao;
 import com.Macrohard.dao.EmployeeLabDao;
-import com.Macrohard.entities.Department;
-import com.Macrohard.entities.DeptRecord;
-import com.Macrohard.entities.Employee;
-import com.Macrohard.entities.MthRecord;
+import com.Macrohard.entities.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -52,5 +49,38 @@ public class employeeLabController {
 
         //thymeleaf auto makeup "/templates/xxxxx.html"
         return "employeelab/querySal_dept_show";
+    }
+
+    @GetMapping("/qbIDs")
+    public String qbIDsIndex(Model mdoel){
+
+        //get all empinfo in select page as option in list bar
+        List<empIDNameSet> options = new EmployeeLabDao().getAllEmp();
+        mdoel.addAttribute("empopt",options);
+
+        return "employeelab/querySal_id_select";
+    }
+
+    //additional post-/qbID
+    //empno from page will be automatically bind to ret.empno
+    //used to get posted id and form get uri => forward to real show page
+    @PostMapping("/qbID")
+    public String forwardIDShow(empIDRet ret){
+
+        //get number property and forward
+        return "redirect:/qbID/"+ret.getEmpno();
+    }
+
+    @GetMapping("/qbID/{id}")
+    public String toIDShowPage(@PathVariable("id") Integer id,Model model){
+
+        //System.out.println(id);
+        List<IDRecord> records = new EmployeeLabDao().getIDMthRecord(id);
+
+        //put result in request field
+        model.addAttribute("mirecords",records);
+
+        //thymeleaf auto makeup "/templates/xxxxx.html"
+        return "employeelab/querySal_id_show";
     }
 }
