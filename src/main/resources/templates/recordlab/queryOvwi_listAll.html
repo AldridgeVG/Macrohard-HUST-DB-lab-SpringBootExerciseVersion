@@ -88,7 +88,7 @@
                             <!--delete emp info button(submit button)-->
                             <!--th:attr can set user defined property value-->
                             <!--js implement below-->
-                            <button th:attr="del_uri=@{'/ovwi/'+${ovwi.getEmpno()}}" type="submit" class="btn btn-sm btn-danger deleteBtn">Delete</button>
+                            <button th:attr="del_uri=@{'/ovwi/'+${ovwi.getEmpno()}+'+'+${ovwi.getMthno()}+'+'+${ovwi.getOwtype()}}" type="submit" class="btn btn-sm btn-danger deleteBtn">Delete</button>
                             <!--
                             <form th:action="@{'/emp/'+${emp.id}}" method="post" display="inline">
                                 <input type="hidden" name="_method" value="delete"/>

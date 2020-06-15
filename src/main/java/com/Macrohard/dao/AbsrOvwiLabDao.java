@@ -80,8 +80,43 @@ public class AbsrOvwiLabDao {
                     "VALUES( " +
                     absRecord.getEmpno() + "," +
                     absRecord.getMthno() + "," +
-                    absRecord.getAbsdy() + "," +
-                    ");";
+                    absRecord.getAbsdy() + ");";
+            int ret = stmt.executeUpdate(sql); // return result set
+            return ret;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        } finally {
+            try {
+                if (stmt != null)
+                    stmt.close();
+                if (connection != null)
+                    connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public int deleteOneAbsr(Integer empno, Integer mthno) {
+
+        String url = "Jdbc:mysql://localhost:3306/macrohard?useSSL=false&serverTimezone=UTC";
+        String usr = "root";
+        String pwd = "galland990531";
+
+        Statement stmt = null;
+        Connection connection = null;
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver"); // load specific driver class
+            connection = DriverManager.getConnection(url, usr, pwd);
+
+            stmt = connection.createStatement();
+            String sql = "DELETE FROM absencerecord WHERE employerno = " + empno + " AND mthno = " + mthno;
             int ret = stmt.executeUpdate(sql); // return result set
             return ret;
 
@@ -172,6 +207,42 @@ public class AbsrOvwiLabDao {
                     ovwRecord.getMthno() + ",'" +
                     ovwRecord.getOwtype() + "'," +
                     ovwRecord.getOwhr() + ");";
+            int ret = stmt.executeUpdate(sql); // return result set
+            return ret;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        } finally {
+            try {
+                if (stmt != null)
+                    stmt.close();
+                if (connection != null)
+                    connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public int deleteOneOvwi(Integer empno,Integer mthno,String owtype){
+
+        String url = "Jdbc:mysql://localhost:3306/macrohard?useSSL=false&serverTimezone=UTC";
+        String usr = "root";
+        String pwd = "galland990531";
+
+        Statement stmt = null;
+        Connection connection = null;
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver"); // load specific driver class
+            connection = DriverManager.getConnection(url, usr, pwd);
+
+            stmt = connection.createStatement();
+            String sql = "DELETE FROM overworkinfo WHERE employerno = " + empno + " AND mthno = " + mthno+" AND owtype = '"+owtype+"';";
             int ret = stmt.executeUpdate(sql); // return result set
             return ret;
 
