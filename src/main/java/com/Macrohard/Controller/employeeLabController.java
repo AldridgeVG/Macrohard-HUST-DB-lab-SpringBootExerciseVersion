@@ -92,4 +92,23 @@ public class employeeLabController {
         return "employeelab/queryEmp_listAll";
     }
 
+    @GetMapping("/memp")
+    public String toAddEmpPage(){
+
+        //goto "/tmplates/employee/add.html"
+        return "employeelab/queryEmp_addOne";
+    }
+
+    @PostMapping("/memp")
+    public String addEmp(MyEmployee memployee){
+
+        System.out.println(memployee);
+        int res = new EmployeeLabDao().insertOneEmp(memployee);
+        if(res == 0){
+            System.out.println("insertion failure");
+        }
+        //FORWARD(转发)/REDIRECT(重定向) goto memps
+        return "redirect:/memps";
+    }
+
 }
