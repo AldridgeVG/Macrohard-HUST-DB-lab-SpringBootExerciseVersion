@@ -43,6 +43,8 @@ public class mMvcConfig implements WebMvcConfigurer {
                 registry.addViewController("/list.html").setViewName("list");
                 registry.addViewController("/dashboard.html").setViewName("dashboard");
                 registry.addViewController("/404.html").setViewName("404");
+                registry.addViewController("/devLog.html").setViewName("devLog");
+                registry.addViewController("/copyright.html").setViewName("copyright");
             }
 
             @Override

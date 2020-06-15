@@ -83,4 +83,13 @@ public class employeeLabController {
         //thymeleaf auto makeup "/templates/xxxxx.html"
         return "employeelab/querySal_id_show";
     }
+
+    @GetMapping("/memps")
+    public String mEmpIndex(Model model){
+
+        List<MyEmployee> mEmps = new EmployeeLabDao().getAllMyEmp();
+        model.addAttribute("mEmps",mEmps);
+        return "employeelab/queryEmp_listAll";
+    }
+
 }
