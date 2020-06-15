@@ -65,9 +65,9 @@ public class TEST_controller {
 
     @ResponseBody
     @GetMapping("/TEST_query")
-    public Map<String, Object> list() {
+    public List<Map<String, Object>> list() {
 
         List<Map<String, Object>> que = jdbcTemplate.queryForList("select * from conntest");
-        return que.get(0);
+        return que;
     }
 }

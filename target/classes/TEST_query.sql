@@ -1,1 +1,1 @@
-select mvalue from conntest
+select mvalue from conntest;
