@@ -329,7 +329,7 @@ public class EmployeeLabDao {
             connection = DriverManager.getConnection(url, usr, pwd);
 
             stmt = connection.createStatement();
-            String sql = "DELETE FROM employerinfo WHERE employerno = " + id;
+            String sql = "DELETE FROM \t\t employerinfo WHERE employerno = " + id;
             int ret = stmt.executeUpdate(sql); // return result set
             return ret;
 
