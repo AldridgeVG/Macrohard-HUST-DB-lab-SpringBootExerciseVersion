@@ -288,14 +288,14 @@ public class EmployeeLabDao {
             stmt = connection.createStatement();
             String sql = "INSERT INTO employerinfo " +
                     "VALUES( " +
-                    myEmployee.getEmpno() + "," +
-                    myEmployee.getEmpname() + "," +
-                    myEmployee.getEmpgender() + "," +
-                    myEmployee.getEmpage() + "," +
-                    myEmployee.getEmpdept() + ","
-                    + myEmployee.getEmpprof() +
-                    ");";
-            int ret = stmt.executeUpdate(sql); // return result set
+                    myEmployee.getEmpno() + ",'" +
+                    myEmployee.getEmpname() + "','" +
+                    myEmployee.getEmpgender() + "'," +
+                    myEmployee.getEmpage() + ",'" +
+                    myEmployee.getEmpdept() + "','" +
+                    myEmployee.getEmpprof() + "');";
+
+            int ret = stmt.executeUpdate(sql);
             return ret;
 
         } catch (SQLException e) {
@@ -329,7 +329,7 @@ public class EmployeeLabDao {
             connection = DriverManager.getConnection(url, usr, pwd);
 
             stmt = connection.createStatement();
-            String sql = "DELETE FROM \t\t employerinfo WHERE employerno = " + id;
+            String sql = "DELETE FROM employerinfo WHERE employerno = " + id;
             int ret = stmt.executeUpdate(sql); // return result set
             return ret;
 

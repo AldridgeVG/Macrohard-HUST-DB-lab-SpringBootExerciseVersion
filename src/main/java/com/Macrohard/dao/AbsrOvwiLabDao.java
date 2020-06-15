@@ -12,7 +12,7 @@ import java.util.List;
 @Repository
 public class AbsrOvwiLabDao {
 
-    public List<AbsRecord> getAllAbsRecords(){
+    public List<AbsRecord> getAllAbsRecords() {
         List<AbsRecord> ret = new ArrayList<>();
 
         //here use root to get users, after this we use our username
@@ -36,7 +36,7 @@ public class AbsrOvwiLabDao {
                 Integer empno1 = rs.getInt("employerno");
                 Integer mthno1 = rs.getInt("mthno");
                 Integer absdy1 = rs.getInt("absenceday");
-                AbsRecord tmp = new AbsRecord(empno1, mthno1,absdy1);
+                AbsRecord tmp = new AbsRecord(empno1, mthno1, absdy1);
                 ret.add(tmp);
             }
             return ret;
@@ -62,7 +62,48 @@ public class AbsrOvwiLabDao {
 
     }
 
-    public List<OvwRecord> getAllOvwRecords(){
+    public int insertOneAbsr(AbsRecord absRecord) {
+
+        String url = "Jdbc:mysql://localhost:3306/macrohard?useSSL=false&serverTimezone=UTC";
+        String usr = "root";
+        String pwd = "galland990531";
+
+        Statement stmt = null;
+        Connection connection = null;
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver"); // load specific driver class
+            connection = DriverManager.getConnection(url, usr, pwd);
+
+            stmt = connection.createStatement();
+            String sql = "INSERT INTO absencerecord " +
+                    "VALUES( " +
+                    absRecord.getEmpno() + "," +
+                    absRecord.getMthno() + "," +
+                    absRecord.getAbsdy() + "," +
+                    ");";
+            int ret = stmt.executeUpdate(sql); // return result set
+            return ret;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        } finally {
+            try {
+                if (stmt != null)
+                    stmt.close();
+                if (connection != null)
+                    connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public List<OvwRecord> getAllOvwRecords() {
         List<OvwRecord> ret = new ArrayList<>();
 
         //here use root to get users, after this we use our username
@@ -87,7 +128,7 @@ public class AbsrOvwiLabDao {
                 Integer mthno1 = rs.getInt("mthno");
                 String owtype1 = rs.getString("owtype");
                 Integer owhr1 = rs.getInt("owhr");
-                OvwRecord tmp = new OvwRecord(empno1,mthno1,owtype1,owhr1);
+                OvwRecord tmp = new OvwRecord(empno1, mthno1, owtype1, owhr1);
                 ret.add(tmp);
             }
             return ret;
@@ -102,6 +143,46 @@ public class AbsrOvwiLabDao {
             try {
                 if (rs != null)
                     rs.close();
+                if (stmt != null)
+                    stmt.close();
+                if (connection != null)
+                    connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public int insertOneOvwi(OvwRecord ovwRecord) {
+        String url = "Jdbc:mysql://localhost:3306/macrohard?useSSL=false&serverTimezone=UTC";
+        String usr = "root";
+        String pwd = "galland990531";
+
+        Statement stmt = null;
+        Connection connection = null;
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver"); // load specific driver class
+            connection = DriverManager.getConnection(url, usr, pwd);
+
+            stmt = connection.createStatement();
+            String sql = "INSERT INTO overworkinfo " +
+                    "VALUES( " +
+                    ovwRecord.getEmpno() + "," +
+                    ovwRecord.getMthno() + ",'" +
+                    ovwRecord.getOwtype() + "'," +
+                    ovwRecord.getOwhr() + ");";
+            int ret = stmt.executeUpdate(sql); // return result set
+            return ret;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        } finally {
+            try {
                 if (stmt != null)
                     stmt.close();
                 if (connection != null)
