@@ -26,17 +26,9 @@ public class LoginDao {
             Class.forName("com.mysql.cj.jdbc.Driver"); // load specific driver class
             connection = DriverManager.getConnection(url, usr, pwd);
 
-            // execute: update/ browse
             stmt = connection.createStatement();
             String sql = "select * from users"; // query into sheet1
             rs = stmt.executeQuery(sql); // return result set
-
-            // result set is a sheet that contains the data that was in query
-            // to get data from result set. pointer rs points to former line of result set
-            // next(): 1.move pointer to next line 2.is null(contain data?)? t/f return
-            // boolean
-            // rs.getXXX(): get data from current line that rs points to
-            // getString/getInt...
 
             while (rs.next()) {
                 String usr2 = rs.getString("usr");

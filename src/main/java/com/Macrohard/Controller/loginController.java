@@ -39,6 +39,7 @@ public class loginController {
 
             //SAVE loged in user in session, send to
             session.setAttribute("loginUser", username);
+            session.setAttribute("loginPwd",password);
 
             //REDIRECT to dashboard (mvc config main <==> dashboard.html),
             //GOAL: prevent repeated submit of form
