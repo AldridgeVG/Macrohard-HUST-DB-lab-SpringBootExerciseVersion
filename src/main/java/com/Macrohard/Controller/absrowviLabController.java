@@ -58,7 +58,6 @@ public class absrowviLabController {
         return "redirect:/absrs";
     }
 
-
     @GetMapping("/ovwis")
     public String ovwIsIndex(Model model) {
 
@@ -77,13 +76,12 @@ public class absrowviLabController {
     @PostMapping("/ovwi")
     public String addOvwi(OvwRecord ovwRecord) {
 
-        //no override toString()!
+        //no override toString()
         System.out.println(ovwRecord);
         int res = new AbsrOvwiLabDao().insertOneOvwi(ovwRecord);
         if (res == 0) {
             System.out.println("insertion failure");
         }
-        //FORWARD(转发)/REDIRECT(重定向) goto absrs
         return "redirect:/ovwis";
     }
 
