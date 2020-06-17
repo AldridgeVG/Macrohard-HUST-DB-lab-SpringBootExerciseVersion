@@ -47,3 +47,11 @@ This is a spring boot version of Macrohard (HUAT-DB-lab)
     delete emp finished (js code? enable hidden method filter to enable delete/put(app.properties))
     
     finish crud, starting SpringData/Mybatis/JDBC
+    
+    
+    
+    Web project finished, all jdbc connection。 CHECKED
+    
+    Q: is there a way to save a global var in helloWorld?
+    (loginUsername)
+    
