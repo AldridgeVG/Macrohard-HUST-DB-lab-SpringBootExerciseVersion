@@ -51,11 +51,13 @@ This is a spring boot version of Macrohard (HUAT-DB-lab)
 
 ​    
 ​    
-    Web project finished, all jdbc connection。 CHECKED
-    
+​    Web project finished, all jdbc connection。 CHECKED
+​    
     Q: is there a way to save a global var in helloWorld?
     (loginUsername)
 
 
 
-add register function ? =>create user...
+add register function ? => create user...
+
+login check necessary?
