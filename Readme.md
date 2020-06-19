@@ -16,11 +16,11 @@ This is a spring boot version of Macrohard (HUAT-DB-lab)
 ##Learing
 
     SpringBoot helloworld -- check
-
+    
     SpringBoot fast init -- check
-
+    
     SpringBoot config -- check  
-
+    
     SpringBoot external config/ config piority -- later
     
     SpringBoot web webjars -- check
@@ -47,11 +47,15 @@ This is a spring boot version of Macrohard (HUAT-DB-lab)
     delete emp finished (js code? enable hidden method filter to enable delete/put(app.properties))
     
     finish crud, starting SpringData/Mybatis/JDBC
-    
-    
-    
+
+
+​    
+​    
     Web project finished, all jdbc connection。 CHECKED
     
     Q: is there a way to save a global var in helloWorld?
     (loginUsername)
-    
+
+
+
+add register function ? =>create user...
