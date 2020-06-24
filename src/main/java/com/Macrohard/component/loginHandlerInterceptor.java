@@ -9,13 +9,12 @@ import javax.servlet.http.HttpServletResponse;
 //check login status
 public class loginHandlerInterceptor implements HandlerInterceptor {
 
-
     //before the exe of obj method, pre check
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         Object user = request.getSession().getAttribute("loginUser");
         if(user == null) {
-
+            System.out.println("UNAUTHORIZED! PLZ LOGIN");
             //not loged in, intercept
             request.setAttribute("msg","UNAUTHORIZED! Please log in");
             request.getRequestDispatcher("/home").forward(request,response);
