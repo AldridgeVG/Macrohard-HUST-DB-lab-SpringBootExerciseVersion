@@ -61,3 +61,7 @@ This is a spring boot version of Macrohard (HUAT-DB-lab)
 add register function ? => create user...
 
 login check necessary? => global var to save usrname as sql usr
+
+
+
+report finished, program closed
