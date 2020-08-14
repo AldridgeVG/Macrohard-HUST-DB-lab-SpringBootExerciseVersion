@@ -13,7 +13,7 @@ This is a spring boot version of Macrohard (HUAT-DB-lab)
     Maven 4.0.0
     Spring Boot 2.3.1
 
-##Learing
+##Learning
 
     SpringBoot helloworld -- check
     
